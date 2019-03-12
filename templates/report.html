@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="jumbotron">
-       {% if verify_pass %}
+       {% if user_pass %}
         <h1>{{ verify_pass }}</h1>
         <p>Your username is: {{ user_name }}</p>
        {% else %}
