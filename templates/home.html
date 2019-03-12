@@ -2,8 +2,14 @@
 
 {% block content %}
     <div class="jumbotron">
-        <p>Welcome Home</p>
-        <p>Please sign up below</p>
-        <a href="{{ url_for('signup')}}">Sign up here</a>
+        <p>Welcome to the Sign Up page</p>
+        <p>Please fill out the form below</p>
+        <form action="{{ url_for('report') }}">
+            <label for="user_name">Username:</label>
+            <input type="text"
+                   name="user_name">
+            <input type="submit" 
+                   value="Submit" />
+        </form>
     </div>
 {% endblock %}
