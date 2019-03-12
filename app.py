@@ -11,8 +11,10 @@ def index():
 def report():
     verify_pass = 'Your username meets the requirements'
     verify_fail = 'Your useranme does not meet the requirements'
+    user_pass = False
     user_name = request.args.get('username')
-    return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail, user_name=user_name)
+    if user_name
+    return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail, user_pass=user_pass, user_name=user_name)
 
 @app.errorhandler(404)
 def page_not_found(e):
