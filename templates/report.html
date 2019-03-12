@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Report page</h1>
+    <div class="jumbotron">
+       {% if verify_pass %}
+        <h1>{{ verify_pass }}</h1>
+        <p>Your username is: {{ username }}</p>
+       {% else %}
+        <h1>{{ verify_fail }}</h1>
+       {% endif %}
+    </div>
 {% endblock %}
