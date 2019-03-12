@@ -7,6 +7,17 @@
         <p>Your username is: {{ user_name }}</p>
        {% else %}
         <h1>{{ verify_fail }}</h1>
+        <ul>
+            {% if not lower_letter %}
+                <li>The username must contain a lowercase letter.</li>
+            {% ifend %}
+            {% if not upper_letter %}
+                <li>The username must contain an uppercase letter.</li>
+            {% ifend %}
+            {% if not num_end %}
+                <li>The username must have a number at the end.</li>
+            {% if end%}
+        </ul>
        {% endif %}
     </div>
 {% endblock %}

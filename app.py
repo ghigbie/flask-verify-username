@@ -9,13 +9,23 @@ def index():
 
 @app.route('/report')
 def report():
-    verify_pass = 'Your username meets the requirements'
-    verify_fail = 'Your useranme does not meet the requirements'
-    user_pass = False
+
+    lower_letter = False
+    upper_letter = False
+    num_end = False
+
     user_name = request.args.get('username')
-    if user_name[-1].isdigit and any(letter.islower() for letter in user_name) and any(letter.isupper() for letter in user_name):
-        user_pass = True
-    return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail, user_pass=user_pass, user_name=user_name)
+
+    lower_letter = any(char.islower() for char in user_name)
+    upper_letter = any(char.isupper() for char in user_name)
+    num_end = user_name[-1].isdigit()
+
+    report = lower_letter and upper_letter and num_end
+
+    verify_pass = 'Your username meets the requirements'
+    verify_fail = 'Your username does not meet all of the requirements'
+
+    return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail, report=report, user_name=user_name, lower_letter=lower_letter, upper_letter=upper_letter, num_end)
 
 @app.errorhandler(404)
 def page_not_found(e):
