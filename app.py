@@ -14,7 +14,7 @@ def report():
     upper_letter = False
     num_end = False
 
-    user_name = request.args.get('username')
+    user_name = request.args.get('user_name')
 
     lower_letter = any(char.islower() for char in user_name)
     upper_letter = any(char.isupper() for char in user_name)
@@ -22,8 +22,8 @@ def report():
 
     report = lower_letter and upper_letter and num_end
 
-    verify_pass = 'Your username meets the requirements'
-    verify_fail = 'Your username does not meet all of the requirements'
+    verify_pass = 'Your username meets the requirements!!! Time to celebrate!'
+    verify_fail = 'Your username does not meet all of the requirements.'
 
     return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail, report=report, user_name=user_name, lower_letter=lower_letter, upper_letter=upper_letter, num_end=num_end)
 

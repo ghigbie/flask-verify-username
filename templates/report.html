@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="jumbotron">
-       {% if user_pass %}
+       {% if report %}
         <h1>{{ verify_pass }}</h1>
         <p>Your username is: {{ user_name }}</p>
        {% else %}
@@ -10,13 +10,13 @@
         <ul>
             {% if not lower_letter %}
                 <li>The username must contain a lowercase letter.</li>
-            {% ifend %}
+            {% endif %}
             {% if not upper_letter %}
                 <li>The username must contain an uppercase letter.</li>
-            {% ifend %}
+            {% endif %}
             {% if not num_end %}
                 <li>The username must have a number at the end.</li>
-            {% if end%}
+            {% endif %}
         </ul>
        {% endif %}
     </div>
