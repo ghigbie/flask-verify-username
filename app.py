@@ -11,4 +11,8 @@ def index():
 def report():
     verify_pass = 'Your username meets the requirements'
     verify_fail = 'Your useranme does not meet the requirements'
-    return render_template('report.html', title=title)
+    return render_template('report.html', title=title, verify_pass=verify_pass, verify_fail=verify_fail)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('notfound.html', title=title, e=e)
